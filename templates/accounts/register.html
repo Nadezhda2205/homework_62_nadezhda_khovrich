@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% comment %} {% load django_bootstrap5 %} {% endcomment %}
+
+
+{% block content %}
+
+<form action="{% url 'register' %}" method='POST'>
+    <div class='form'>
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <input type="submit" value="Зарегистрироваться">
+       
+
+    </div>
+</form>
+{% endblock %}

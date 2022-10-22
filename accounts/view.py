@@ -1,11 +1,14 @@
 from django.views.generic import TemplateView
-from accounts.forms import LoginForm
+from accounts.forms import LoginForm, CustomUsercreationForm
 from django.contrib.auth import authenticate, login, logout
+from django.views.generic import CreateView
+from django.urls import reverse
+
 from django.shortcuts import redirect
 
 
 class LoginView(TemplateView):
-    template_name = 'account/login.html'
+    template_name = 'accounts/login.html'
     form = LoginForm
 
     def get(self, request, *args, **kwargs):
@@ -32,3 +35,18 @@ def logout_view(request):
     return redirect('task_list')
 
 
+class RegisterView(CreateView):
+    template_name = 'accounts/register.html'
+    form_class = CustomUsercreationForm
+    succes_url = '/'
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('task_list')
+        context = {}
+        context['form'] = form
+        return self.render_to_response(context)
+        
