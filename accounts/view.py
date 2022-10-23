@@ -3,8 +3,8 @@ from accounts.forms import LoginForm, CustomUsercreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import CreateView
 from django.urls import reverse
-
 from django.shortcuts import redirect
+from issue.views import LoginRequiredMixin
 
 
 class LoginView(TemplateView):

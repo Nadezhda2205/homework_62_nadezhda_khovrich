@@ -1,8 +1,9 @@
-from django.shortcuts import get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.shortcuts import get_object_or_404, redirect
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse, reverse_lazy
 from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 
 
 from issue.forms import TaskForm, SearchTaskForm, ProjectForm
@@ -95,6 +96,12 @@ class ProjectDetailView(DetailView):
     model = Project
     context_object_name = 'project'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        users = User.objects.all()
+        context['users'] = users
+        return context
+
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):
     template_name: str = 'project/project_create.html'
@@ -103,3 +110,16 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse('project_detail', kwargs={'pk': self.object.pk})
+
+
+class UserInProjectAdd(TemplateView):
+
+    def post(self, request, *args, **kwargs):
+        pk = kwargs.get('pk')
+        users = request.POST.get('users')
+        project = Project.objects.get(pk=pk)
+        for user_id in users:
+            project.users.add(User.objects.get(pk=user_id))
+        
+        return redirect('project_detail', pk=pk)
+        

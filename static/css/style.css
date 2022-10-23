@@ -2,6 +2,10 @@ body{
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
+.wth{
+    width: 150px;
+}
+
 .nav_color{
     background:radial-gradient(200px 150px, #38bac7, #324a56);
 }

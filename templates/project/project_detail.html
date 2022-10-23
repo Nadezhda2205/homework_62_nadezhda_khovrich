@@ -5,12 +5,28 @@
 {% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-<a class="btn btn-secondary btn-sm ms-5" href="{% url 'task_create' project.pk %}"><p>Создать новую задачу</p></a>
-{% endif %}
-<p>Список пользователей проекта:</p>
-<a href="#" class="btn btn-secondary btn-sm mb-2" aria-current="page">Добавить пользователя</a>
-    {% for user in project.users.all %}
+<div class="mb-2">
+    {% if user.is_authenticated %}
+        <a class="btn btn-secondary btn-sm ms-1" href="{% url 'task_create' project.pk %}"><p>Создать новую задачу</p></a>
+    {% endif %}
+</div>
+<h5>Выберите пользователей для добавления в проект</h5>
+<form action="{% url 'users_add' project.pk %}" method="POST">
+    {% csrf_token %}
+
+    <select name="users" id="id_users" multiple="" class="wth mb-4">
+        {% for user in users %}
+            <option value="{{ user.id }}">{{ user.username }}</option>
+        {% endfor %}
+    </select>
+<div>
+    <input class="btn btn-secondary btn-sm mb-5" type="submit" value="Добавить пользователя">
+</div>
+</form>
+
+<h5>Список пользователей проекта:</h5>
+
+{% for user in project.users.all %}
         <al>
             <li>{{user.username}} <a href="#" class="btn btn-secondary btn-sm ms-5 mb-2">Удалить пользователя</a></li>
         </al>
