@@ -10,6 +10,7 @@
         <a class="btn btn-secondary btn-sm ms-1" href="{% url 'task_create' project.pk %}"><p>Создать новую задачу</p></a>
     {% endif %}
 </div>
+
 <h5>Выберите пользователей для добавления в проект</h5>
 <form action="{% url 'users_add' project.pk %}" method="POST">
     {% csrf_token %}
@@ -25,13 +26,18 @@
 </form>
 
 <h5>Список пользователей проекта:</h5>
-
-{% for user in project.users.all %}
-        <al>
-            <li>{{user.username}} <a href="#" class="btn btn-secondary btn-sm ms-5 mb-2">Удалить пользователя</a></li>
-        </al>
+<div class="div_color">
+    {% for user in project.users.all %}
+    <form action="{% url 'user_delete' project.pk user.pk %}" method="POST">
+        {% csrf_token %}
+            {{user.username}}    
+            <p><input class="btn btn-secondary btn-sm mb-1 ms-5" type="submit" value="Удалить пользователя">
+                <hr>
+            </p>    
+    </form>
     {% endfor %}
-<hr>
+</div>
+
 <h4>Детальный просмотр задач {{ project.name }}</h4>
 {% for task in project.tasks.all %}
     <h5>Задача:</h5>

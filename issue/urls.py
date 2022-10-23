@@ -1,6 +1,16 @@
 from django.urls import path, include
-from issue.views import UserInProjectAdd, TaskListView, TaskDetailView, TaskUpdateView, TaskCreateView, TaskDeleteView, ProjectListView, ProjectDetailView, ProjectCreateView
-
+from issue.views import (
+    UserInProjectDelete, 
+    UserInProjectAdd, 
+    TaskListView, 
+    TaskDetailView, 
+    TaskUpdateView, 
+    TaskCreateView, 
+    TaskDeleteView, 
+    ProjectListView, 
+    ProjectDetailView, 
+    ProjectCreateView
+)
 urlpatterns = [
     path('', TaskListView.as_view(), name='task_list'),
     path('task/detail/<int:pk>', TaskDetailView.as_view(), name='task_detail'),
@@ -13,5 +23,6 @@ urlpatterns = [
     path('project/<int:pk>/task/add/', TaskCreateView.as_view(), name='task_create'),
     
     path('project/<int:pk>/users/add/', UserInProjectAdd.as_view(), name='users_add'),
+    path('project/<int:project_pk>/user/<int:user_pk>/delete/', UserInProjectDelete.as_view(), name='user_delete'),
     
 ]

@@ -123,3 +123,12 @@ class UserInProjectAdd(TemplateView):
         
         return redirect('project_detail', pk=pk)
         
+class UserInProjectDelete(TemplateView):
+    
+    def post(self, request, *args, **kwargs):
+        user_id = kwargs.get('user_pk')
+        project_id = kwargs.get('project_pk')
+        project = Project.objects.get(pk=project_id)
+        project.users.remove(User.objects.get(pk=user_id))
+        return redirect('project_detail', pk=project_id)
+       
