@@ -23,6 +23,7 @@
     <h5>Тип:</h5>
     <p>{{task.type}}</p>
     {% if user.is_authenticated %}
+        <a class="btn btn-secondary btn-sm ms-5" href="{% url 'project_detail' task.project.pk  %}">Проект</a>
         <a class="btn btn-secondary btn-sm ms-5" href="{% url 'task_update' task.pk  %}">Редактировать</a>
         <a class="btn btn-secondary btn-sm ms-5" href="{% url 'task_delete' task.pk  %}">Удалить</a>
     {% endif %}
