@@ -48,8 +48,8 @@
             </div>
             <div class="ms-5 d-flex align-items-center">
               {% if user.is_authenticated %}
-                <li>
-                  Здравствуйте {{ user.username }}
+                <li class="cl_color">
+                  Здравствуйте >>>{{ user.username }}<<<
                 </li>
                 <li>    
                   <form action="{% url 'logout' %}" method="post">
