@@ -16,4 +16,4 @@ class SearchTaskForm(forms.Form):
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['name', 'description', 'start_date', 'end_date']
+        fields = '__all__'

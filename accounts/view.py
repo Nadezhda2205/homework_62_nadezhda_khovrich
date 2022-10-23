@@ -49,4 +49,3 @@ class RegisterView(CreateView):
         context = {}
         context['form'] = form
         return self.render_to_response(context)
-        

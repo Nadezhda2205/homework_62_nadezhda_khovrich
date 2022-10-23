@@ -97,7 +97,7 @@ class ProjectDetailView(DetailView):
 
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):
-    template_name: str = 'task_create.html'
+    template_name: str = 'project/project_create.html'
     form_class = ProjectForm
     model = Project
 
