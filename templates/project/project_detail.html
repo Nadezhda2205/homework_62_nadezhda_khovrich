@@ -8,9 +8,15 @@
 {% if user.is_authenticated %}
 <a class="btn btn-secondary btn-sm ms-5" href="{% url 'task_create' project.pk %}"><p>Создать новую задачу</p></a>
 {% endif %}
+<p>Список пользователей проекта:</p>
+<a href="#" class="btn btn-secondary btn-sm mb-2" aria-current="page">Добавить пользователя</a>
+    {% for user in project.users.all %}
+        <al>
+            <li>{{user.username}} <a href="#" class="btn btn-secondary btn-sm ms-5 mb-2">Удалить пользователя</a></li>
+        </al>
+    {% endfor %}
 <hr>
 <h4>Детальный просмотр задач {{ project.name }}</h4>
-
 {% for task in project.tasks.all %}
     <h5>Задача:</h5>
         {{ task.summary }}

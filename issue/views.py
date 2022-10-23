@@ -15,7 +15,7 @@ class SuccessDetailUrlMixin:
 
 
 
-class TaskListView(SuccessDetailUrlMixin, ListView):
+class TaskListView(ListView):
     template_name: str = 'task_list.html'
     model = Task
     context_object_name = 'tasks'
@@ -56,17 +56,14 @@ class TaskDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'task'
 
 
-class TaskUpdateView(LoginRequiredMixin, UpdateView):
+class TaskUpdateView(LoginRequiredMixin, SuccessDetailUrlMixin, UpdateView):
     template_name = 'task_update.html'
     form_class = TaskForm
     model = Task
     context_object_name = 'task'
 
-    def get_success_url(self):
-        return reverse('task_detail', kwargs={'pk': self.object.pk})
 
-
-class TaskCreateView(LoginRequiredMixin, CreateView):
+class TaskCreateView(LoginRequiredMixin, SuccessDetailUrlMixin, CreateView):
     template_name: str = 'task_create.html'
     model = Task
     fields = ['summary', 'description', 'status', 'type']
@@ -74,9 +71,6 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
     def get(self, request, *args, **kwargs):
         self.object = None
         return super().get(request, *args, **kwargs)
-
-    def get_success_url(self):
-        return reverse('task_detail', kwargs={'pk': self.object.pk})
 
     def form_valid(self, form):
         form.instance.project = get_object_or_404(Project, id=self.kwargs.get('pk'))

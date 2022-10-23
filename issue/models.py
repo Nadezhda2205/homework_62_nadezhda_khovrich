@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.utils import timezone
 
 
@@ -22,7 +23,7 @@ class Project(models.Model):
     description = models.TextField(verbose_name='Описание', null=True)
     start_date = models.DateField(verbose_name='Дата начала', null=False)
     end_date = models.DateField(verbose_name='Дата окончания', null=True)
-
+    users = models.ManyToManyField(to=User, verbose_name='Пользователи', blank=True, related_name='projects', null=True)
 
     def __str__(self):
         return self.name

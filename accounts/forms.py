@@ -9,11 +9,9 @@ class LoginForm(forms.Form):
     password = forms.CharField(required=True, label='Пароль', widget=forms.PasswordInput)
 
 
-
 class CustomUsercreationForm(forms.ModelForm):
     password = forms.CharField(label='Пароль', strip=False, required=True, widget=forms.PasswordInput)
     password_confirm = forms.CharField(label='Подтвердите пароль', strip=False, required=True, widget=forms.PasswordInput)
-    # email = forms.CharField(label='Электронная почта', required=True, widget=forms.EmailField)    
 
 
     class Meta:
