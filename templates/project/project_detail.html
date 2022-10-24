@@ -15,7 +15,7 @@
 <form action="{% url 'users_add' project.pk %}" method="POST">
     {% csrf_token %}
 
-    <select name="users" id="id_users" multiple="" class="wth mb-4">
+    <select name="users" id="id_users" multiple class="wth mb-4">
         {% for user in users %}
             <option value="{{ user.id }}">{{ user.username }}</option>
         {% endfor %}

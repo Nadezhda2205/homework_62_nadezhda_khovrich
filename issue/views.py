@@ -69,6 +69,7 @@ class TaskUpdateView(GroupPermission, LoginRequiredMixin, SuccessDetailUrlMixin,
     groups = ['Project Manager', 'Team Lead', 'Developer']
 
 
+
 class TaskCreateView(GroupPermission, LoginRequiredMixin, SuccessDetailUrlMixin, CreateView):
     template_name: str = 'task_create.html'
     model = Task
@@ -92,13 +93,11 @@ class TaskDeleteView(GroupPermission, LoginRequiredMixin, DeleteView):
     groups = ['Project Manager', 'Team Lead']
 
 
-
 class ProjectListView(GroupPermission, ListView):
     template_name: str = 'project/project_list.html'
     model = Project
     context_object_name = 'projects'
     groups = ['Project Manager', 'Team Lead', 'Developer']
-
 
 
 class ProjectDetailView(GroupPermission, DetailView):
@@ -126,22 +125,22 @@ class ProjectCreateView(GroupPermission, LoginRequiredMixin, CreateView):
         return reverse('project_detail', kwargs={'pk': self.object.pk})
 
 
-class UserInProjectAdd(GroupPermission, TemplateView):
+class UserInProjectAdd(TemplateView):
     groups = ['Project Manager', 'Team Lead']
 
 
     def post(self, request, *args, **kwargs):
-        pk = kwargs.get('pk')
-        users = request.POST.get('users')
-        project = Project.objects.get(pk=pk)
-        for user_id in users:
-            project.users.add(User.objects.get(pk=user_id))
+        project_pk = kwargs.get('pk')
+        users_pk = dict(request.POST).get('users')
+        project = Project.objects.get(pk=project_pk)
+        for user_pk in users_pk:
+            project.users.add(User.objects.get(pk=user_pk))
         
-        return redirect('project_detail', pk=pk)
+        return redirect('project_detail', pk=project_pk)
         
+
 class UserInProjectDelete(GroupPermission, TemplateView):
     groups = ['Project Manager', 'Team Lead']
-
     
     def post(self, request, *args, **kwargs):
         user_id = kwargs.get('user_pk')
