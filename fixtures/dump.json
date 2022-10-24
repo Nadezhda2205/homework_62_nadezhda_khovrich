@@ -585,6 +585,539 @@
   }
 },
 {
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2022-10-23T04:53:52.401Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "Проект 5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2022-10-23T05:17:13.909Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Проект 1",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2022-10-23T05:17:23.689Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Проект 2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2022-10-23T05:17:30.154Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Проект 3",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2022-10-23T17:17:24.972Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "8",
+    "object_repr": "ddd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2022-10-23T17:17:33.968Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "9",
+    "object_repr": "dddvv",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2022-10-23T17:17:40.400Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "7",
+    "object_repr": "nnn",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2022-10-23T17:17:46.685Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "6",
+    "object_repr": "oo",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2022-10-23T17:17:53.172Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "qq",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2022-10-23T17:17:59.554Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "qqq",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2022-10-23T17:18:39.399Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "5",
+    "object_repr": "manager",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Username\", \"First name\", \"Last name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2022-10-23T17:19:08.908Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "lead",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Username\", \"First name\", \"Last name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2022-10-23T17:19:21.351Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "lead",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2022-10-23T17:19:30.585Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "5",
+    "object_repr": "manager",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2022-10-23T17:20:57.996Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "manager",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2022-10-23T17:23:39.480Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "manager",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2022-10-23T17:29:46.316Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Project Manager",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2022-10-23T17:31:33.121Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Team Lead",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2022-10-23T17:32:29.218Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "3",
+    "object_repr": "Developer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2022-10-23T17:45:49.187Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "12",
+    "object_repr": "dev",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2022-10-23T17:45:56.243Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "11",
+    "object_repr": "lead",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2022-10-23T17:46:02.673Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "10",
+    "object_repr": "manager",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2022-10-24T03:49:33.569Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "14",
+    "object_repr": "manager",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2022-10-24T05:21:10.258Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Project Manager",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2022-10-24T05:37:04.827Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Team Lead",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2022-10-24T05:38:06.849Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "3",
+    "object_repr": "Developer",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2022-10-24T05:44:34.045Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "14",
+    "object_repr": "manager",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2022-10-24T05:44:46.285Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "15",
+    "object_repr": "lead",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2022-10-24T05:44:56.317Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "14",
+    "object_repr": "manager",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2022-10-24T05:45:04.257Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "13",
+    "object_repr": "dev",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2022-10-24T05:45:09.716Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "15",
+    "object_repr": "lead",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2022-10-24T07:07:53.676Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "13",
+    "object_repr": "dev",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\", \"User permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2022-10-24T07:08:31.460Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "13",
+    "object_repr": "dev",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"User permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2022-10-24T07:09:06.290Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "13",
+    "object_repr": "dev",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2022-10-24T07:09:29.852Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "13",
+    "object_repr": "dev",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"User permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2022-10-24T07:09:51.098Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "13",
+    "object_repr": "dev",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2022-10-24T07:10:12.190Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "13",
+    "object_repr": "dev",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2022-10-24T07:10:21.814Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "13",
+    "object_repr": "dev",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2022-10-24T07:54:17.333Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "3",
+    "object_repr": "Developer",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2022-10-24T07:54:31.368Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Project Manager",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2022-10-24T07:54:34.728Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Team Lead",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+  }
+},
+{
   "model": "auth.permission",
   "pk": 1,
   "fields": {
@@ -945,11 +1478,35 @@
   }
 },
 {
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Project Manager",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Team Lead",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Developer",
+    "permissions": []
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$390000$0ldC67FhCPPCvc8syhv3tK$6evPZgqXt47RqAy0Po0kI3mD/FsifPiFwQi2aTpjO8M=",
-    "last_login": "2022-10-06T14:57:16.190Z",
+    "last_login": "2022-10-24T15:25:19.749Z",
     "is_superuser": true,
     "username": "root",
     "first_name": "",
@@ -958,6 +1515,84 @@
     "is_staff": true,
     "is_active": true,
     "date_joined": "2022-10-06T14:56:27.663Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$gf0enj2MOqZvx1psz6wyle$vbv3sPifsodjSnTdhxCGNuxHs9rZek8WkxaQLh6S4pI=",
+    "last_login": "2022-10-24T14:53:14.845Z",
+    "is_superuser": false,
+    "username": "dev",
+    "first_name": "dev",
+    "last_name": "dev",
+    "email": "dev@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-10-23T17:46:36Z",
+    "groups": [
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$whbfxZLjIPrvvuQM6ca8Sw$XqLBsGRhZFes4ASOfHX85TylWwHCemD03gTKno4UpSs=",
+    "last_login": "2022-10-24T15:27:51.846Z",
+    "is_superuser": false,
+    "username": "manager",
+    "first_name": "manager",
+    "last_name": "manager",
+    "email": "manager@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-10-23T17:46:59Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 15,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$7MQgPhTUB8usHwjtyrOTTl$gSr/Gnz27Jad2aQ6LRQaGacogwoopvpCKAhlzhQuJ/k=",
+    "last_login": "2022-10-24T14:56:48.929Z",
+    "is_superuser": false,
+    "username": "lead",
+    "first_name": "lead",
+    "last_name": "lead",
+    "email": "lead@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-10-23T17:47:28Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$JhJu4NmlGWYMAufTCkkd3f$25g6+x+LPCAiIdzQNjjecD/t3EgyRjjQAVZEv8govYM=",
+    "last_login": "2022-10-24T03:44:55.393Z",
+    "is_superuser": false,
+    "username": "йй",
+    "first_name": "йй",
+    "last_name": "йй",
+    "email": "qqq@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-10-24T03:44:54.958Z",
     "groups": [],
     "user_permissions": []
   }
@@ -1044,10 +1679,66 @@
 },
 {
   "model": "sessions.session",
+  "pk": "5e9gk7tvl0hdfper8c1y1btac1pu8bxh",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQRe_iGlnjLc5Q0ucM0SwWDqBEylIh7k4ipYD2vff_2_S0rbXfljL3g5qrcdFcfiGTPMt4GH3QeJ-sTOM6D2yPxJ52sd2k5XU727-DSkvd18QRidQln4PzrEASmlYEI3JW9QDgmRMGAETeGTRNyoLZSUxtiObzBQNpNzo:1omzMl:dMixiyZ7iMbHRl-oTmmRY60rWMiKvIY8sGkxogem86U",
+    "expire_date": "2022-11-07T15:27:51.851Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "apeqo0atj3rb6ud69dapa2skhqf1gfbo",
+  "fields": {
+    "session_data": "e30:1omJbW:eLt-YK_8WkxNBXDCWlvWg0tuZtaEX6ehPIXAxq8GtPo",
+    "expire_date": "2022-11-05T18:52:18.353Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "nfqu8j45ck1iqorpjurh156bmg2leq1c",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDBQum4dN8zkBmGStVAUtqV8e7apAvd_vfef6lA25rD1tISZlEXZdTpd2OKj1R2IHcqt6pjLesys94VfdCmxyrpeT3cv4NMLX_rfrAOU_ReINKZga1h8GDJ8YARLQAQdl1CN5mOeyPOIhorBhJNKKjeH8oxNz0:1omzKJ:EaqCoGGkyoMUf-i4qUVG3HKXiEhneSb9aun5mRVIsnE",
+    "expire_date": "2022-11-07T15:25:19.756Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qyyvrq4kro5otal1re1i48cfqylgsmcs",
+  "fields": {
+    "session_data": "e30:1omJiV:EaJZiRmxSgNvK1D3lGrB4QC_8qR8mAlm4UQmAcbqZhI",
+    "expire_date": "2022-11-05T18:59:31.388Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rfddj71c3hgm5d814g6i0dzfid5d9h9z",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDBQum4dN8zkBmGStVAUtqV8e7apAvd_vfef6lA25rD1tISZlEXZdTpd2OKj1R2IHcqt6pjLesys94VfdCmxyrpeT3cv4NMLX_rfrAOU_ReINKZga1h8GDJ8YARLQAQdl1CN5mOeyPOIhorBhJNKKjeH8oxNz0:1omqDY:rq_uAbCYofdAI1kqUmwd7lO6kgL70bnM3iP8sPmzTKw",
+    "expire_date": "2022-11-07T05:41:44.252Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rsqfexbso5o526yjar1kqkz4avqvlm98",
+  "fields": {
+    "session_data": "e30:1omJmq:Z_BPj30GnQfzc7BdJF1WTAl0NJf7UiycXpo7gJBgVZo",
+    "expire_date": "2022-11-05T19:04:00.688Z"
+  }
+},
+{
+  "model": "sessions.session",
   "pk": "vf3277mz8bggepg9x3ojnnpr9b5kxvzj",
   "fields": {
     "session_data": ".eJxVjEEOwiAQRe_C2pDBQum4dN8zkBmGStVAUtqV8e7apAvd_vfef6lA25rD1tISZlEXZdTpd2OKj1R2IHcqt6pjLesys94VfdCmxyrpeT3cv4NMLX_rfrAOU_ReINKZga1h8GDJ8YARLQAQdl1CN5mOeyPOIhorBhJNKKjeH8oxNz0:1ogSJI:lC4SqYAzNLjKI6dSw-SLcXpwrFepgAmplpRwi5EHrm4",
     "expire_date": "2022-10-20T14:57:16.198Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "x965suq5i77jrotv0b6d2zmtf1km62vy",
+  "fields": {
+    "session_data": "e30:1omJny:tbcNmu8VpUxpit-vzt8coGM6M4evUO3Liu73S8H5DuE",
+    "expire_date": "2022-11-05T19:05:10.734Z"
   }
 },
 {
@@ -1099,7 +1790,11 @@
     "name": "Проект 1",
     "description": "супер",
     "start_date": "2022-10-12",
-    "end_date": "2022-11-10"
+    "end_date": "2022-11-10",
+    "users": [
+      1,
+      13
+    ]
   }
 },
 {
@@ -1109,7 +1804,10 @@
     "name": "Проект 2",
     "description": "Просто класс",
     "start_date": "2022-10-18",
-    "end_date": "2022-11-25"
+    "end_date": "2022-11-25",
+    "users": [
+      13
+    ]
   }
 },
 {
@@ -1119,7 +1817,10 @@
     "name": "Проект 3",
     "description": "ыаыаыа",
     "start_date": "2022-10-12",
-    "end_date": "2022-11-25"
+    "end_date": "2022-11-25",
+    "users": [
+      14
+    ]
   }
 },
 {
@@ -1129,7 +1830,10 @@
     "name": "Проект 4",
     "description": "фвфвфв",
     "start_date": "2022-10-18",
-    "end_date": "2022-11-25"
+    "end_date": "2022-11-25",
+    "users": [
+      1
+    ]
   }
 },
 {
@@ -1139,7 +1843,8 @@
     "name": "Проект 5",
     "description": "ввв",
     "start_date": "2022-10-12",
-    "end_date": "2022-11-25"
+    "end_date": "2022-11-25",
+    "users": []
   }
 },
 {
@@ -1149,21 +1854,139 @@
     "name": "sssss",
     "description": "sssss",
     "start_date": "2022-10-12",
-    "end_date": "2022-11-25"
+    "end_date": "2022-11-25",
+    "users": []
   }
 },
 {
-  "model": "issue.task",
-  "pk": 23,
+  "model": "issue.project",
+  "pk": 7,
   "fields": {
-    "summary": "Купить мороженое",
-    "description": "ывымсывм",
-    "status": 1,
-    "type": 1,
-    "is_deleted": true,
-    "created_at": "2022-10-14T09:29:02.289Z",
-    "updated_at": "2022-10-14T13:12:43.058Z",
-    "project": 1
+    "name": "Проект 3",
+    "description": "ыыыыы",
+    "start_date": "2022-10-12",
+    "end_date": "2022-11-25",
+    "users": []
+  }
+},
+{
+  "model": "issue.project",
+  "pk": 8,
+  "fields": {
+    "name": "sss",
+    "description": "sssss",
+    "start_date": "2022-10-18",
+    "end_date": "2022-11-25",
+    "users": []
+  }
+},
+{
+  "model": "issue.project",
+  "pk": 9,
+  "fields": {
+    "name": "Проект 55",
+    "description": "ааыва",
+    "start_date": "2022-10-12",
+    "end_date": "2022-11-10",
+    "users": [
+      15
+    ]
+  }
+},
+{
+  "model": "issue.project",
+  "pk": 10,
+  "fields": {
+    "name": "dddd",
+    "description": "ddddd",
+    "start_date": "2022-10-12",
+    "end_date": "2022-11-10",
+    "users": [
+      13
+    ]
+  }
+},
+{
+  "model": "issue.project",
+  "pk": 11,
+  "fields": {
+    "name": "22",
+    "description": "22",
+    "start_date": "2022-10-12",
+    "end_date": "2022-11-10",
+    "users": []
+  }
+},
+{
+  "model": "issue.project",
+  "pk": 12,
+  "fields": {
+    "name": "dfdf",
+    "description": "dfdf",
+    "start_date": "2022-10-12",
+    "end_date": "2022-11-10",
+    "users": [
+      13
+    ]
+  }
+},
+{
+  "model": "issue.project",
+  "pk": 13,
+  "fields": {
+    "name": "!!!",
+    "description": "!!!",
+    "start_date": "2022-10-12",
+    "end_date": "2022-11-25",
+    "users": []
+  }
+},
+{
+  "model": "issue.project",
+  "pk": 14,
+  "fields": {
+    "name": "dwe",
+    "description": "wdwdwd",
+    "start_date": "2022-10-12",
+    "end_date": "2022-11-10",
+    "users": []
+  }
+},
+{
+  "model": "issue.project",
+  "pk": 15,
+  "fields": {
+    "name": "cdcd",
+    "description": "wwe",
+    "start_date": "2022-10-12",
+    "end_date": "2022-11-25",
+    "users": [
+      1
+    ]
+  }
+},
+{
+  "model": "issue.project",
+  "pk": 16,
+  "fields": {
+    "name": "frv",
+    "description": "vrf",
+    "start_date": "2022-10-12",
+    "end_date": "2022-11-25",
+    "users": []
+  }
+},
+{
+  "model": "issue.project",
+  "pk": 17,
+  "fields": {
+    "name": "Проект 64",
+    "description": "ыыфыфы",
+    "start_date": "2022-10-12",
+    "end_date": "2022-11-10",
+    "users": [
+      15
+    ]
   }
 },
 {
@@ -1176,7 +1999,7 @@
     "type": 1,
     "is_deleted": false,
     "created_at": "2022-10-14T12:08:28.211Z",
-    "updated_at": "2022-10-14T13:08:39.530Z",
+    "updated_at": "2022-10-24T07:51:47.627Z",
     "project": 4
   }
 },
@@ -1185,12 +2008,12 @@
   "pk": 26,
   "fields": {
     "summary": "Не успела",
-    "description": "жесть как не хватает времени",
+    "description": "dsdmhhh",
     "status": 1,
     "type": 1,
     "is_deleted": false,
     "created_at": "2022-10-14T13:08:26.148Z",
-    "updated_at": "2022-10-14T13:08:26.148Z",
+    "updated_at": "2022-10-24T17:42:32.659Z",
     "project": 1
   }
 },
@@ -1234,6 +2057,90 @@
     "created_at": "2022-10-14T13:12:33.490Z",
     "updated_at": "2022-10-14T13:12:33.490Z",
     "project": 6
+  }
+},
+{
+  "model": "issue.task",
+  "pk": 30,
+  "fields": {
+    "summary": "sssss",
+    "description": "sss",
+    "status": 1,
+    "type": 2,
+    "is_deleted": false,
+    "created_at": "2022-10-23T03:47:00.237Z",
+    "updated_at": "2022-10-23T03:47:00.237Z",
+    "project": 1
+  }
+},
+{
+  "model": "issue.task",
+  "pk": 31,
+  "fields": {
+    "summary": "ыйыйыйы",
+    "description": "ыйыйыйыйы",
+    "status": 1,
+    "type": 3,
+    "is_deleted": false,
+    "created_at": "2022-10-23T10:34:36.358Z",
+    "updated_at": "2022-10-23T10:34:36.358Z",
+    "project": 7
+  }
+},
+{
+  "model": "issue.task",
+  "pk": 35,
+  "fields": {
+    "summary": "rgt",
+    "description": "grt",
+    "status": 1,
+    "type": 1,
+    "is_deleted": false,
+    "created_at": "2022-10-24T07:08:14.664Z",
+    "updated_at": "2022-10-24T07:08:14.664Z",
+    "project": 16
+  }
+},
+{
+  "model": "issue.task",
+  "pk": 36,
+  "fields": {
+    "summary": "44",
+    "description": "44",
+    "status": 1,
+    "type": 1,
+    "is_deleted": false,
+    "created_at": "2022-10-24T15:06:49.788Z",
+    "updated_at": "2022-10-24T15:06:49.788Z",
+    "project": 15
+  }
+},
+{
+  "model": "issue.task",
+  "pk": 38,
+  "fields": {
+    "summary": "hhhh",
+    "description": "mmm",
+    "status": 1,
+    "type": 1,
+    "is_deleted": false,
+    "created_at": "2022-10-24T17:59:02.544Z",
+    "updated_at": "2022-10-24T17:59:02.544Z",
+    "project": 3
+  }
+},
+{
+  "model": "issue.task",
+  "pk": 39,
+  "fields": {
+    "summary": "jjj",
+    "description": "kkk",
+    "status": 2,
+    "type": 3,
+    "is_deleted": false,
+    "created_at": "2022-10-24T18:01:50.288Z",
+    "updated_at": "2022-10-24T18:01:50.288Z",
+    "project": 1
   }
 }
 ]
