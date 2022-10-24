@@ -2,9 +2,8 @@ from django.views.generic import TemplateView
 from accounts.forms import LoginForm, CustomUsercreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import CreateView
-from django.urls import reverse
 from django.shortcuts import redirect
-from issue.views import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 
 class LoginView(TemplateView):
@@ -49,3 +48,10 @@ class RegisterView(CreateView):
         context = {}
         context['form'] = form
         return self.render_to_response(context)
+
+
+class GroupPermission(UserPassesTestMixin):
+    groups = []
+
+    def test_func(self):
+        return self.request.user.groups.filter(name__in=self.groups).exists()

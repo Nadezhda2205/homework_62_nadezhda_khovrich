@@ -4,6 +4,7 @@ from django.urls import reverse, reverse_lazy
 from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from accounts.view import GroupPermission
 
 
 from issue.forms import TaskForm, SearchTaskForm, ProjectForm
@@ -16,12 +17,13 @@ class SuccessDetailUrlMixin:
 
 
 
-class TaskListView(ListView):
+class TaskListView(GroupPermission, ListView):
     template_name: str = 'task_list.html'
     model = Task
     context_object_name = 'tasks'
     paginate_by = 3
     paginate_orphans = 1
+    groups = ['Project Manager', 'Team Lead', 'Developer']
 
  
     def get_context_data(self, **kwargs):
@@ -51,23 +53,28 @@ class TaskListView(ListView):
         return queryset
 
 
-class TaskDetailView(LoginRequiredMixin, DetailView):
+class TaskDetailView(GroupPermission, LoginRequiredMixin, DetailView):
     template_name: str = 'task_detail.html'
     model = Task
     context_object_name = 'task'
+    groups = ['Project Manager', 'Team Lead', 'Developer']
 
 
-class TaskUpdateView(LoginRequiredMixin, SuccessDetailUrlMixin, UpdateView):
+
+class TaskUpdateView(GroupPermission, LoginRequiredMixin, SuccessDetailUrlMixin, UpdateView):
     template_name = 'task_update.html'
     form_class = TaskForm
     model = Task
     context_object_name = 'task'
+    groups = ['Project Manager', 'Team Lead', 'Developer']
 
 
-class TaskCreateView(LoginRequiredMixin, SuccessDetailUrlMixin, CreateView):
+class TaskCreateView(GroupPermission, LoginRequiredMixin, SuccessDetailUrlMixin, CreateView):
     template_name: str = 'task_create.html'
     model = Task
     fields = ['summary', 'description', 'status', 'type']
+    groups = ['Project Manager', 'Team Lead', 'Developer']
+
 
     def get(self, request, *args, **kwargs):
         self.object = None
@@ -78,23 +85,28 @@ class TaskCreateView(LoginRequiredMixin, SuccessDetailUrlMixin, CreateView):
         return super().form_valid(form)
 
 
-class TaskDeleteView(LoginRequiredMixin, DeleteView):
+class TaskDeleteView(GroupPermission, LoginRequiredMixin, DeleteView):
     template_name = 'task_delete.html'
     model = Task
     success_url = reverse_lazy('task_list')
-    
+    groups = ['Project Manager', 'Team Lead']
 
 
-class ProjectListView(ListView):
+
+class ProjectListView(GroupPermission, ListView):
     template_name: str = 'project/project_list.html'
     model = Project
     context_object_name = 'projects'
+    groups = ['Project Manager', 'Team Lead', 'Developer']
 
 
-class ProjectDetailView(DetailView):
+
+class ProjectDetailView(GroupPermission, DetailView):
     template_name: str = 'project/project_detail.html'
     model = Project
     context_object_name = 'project'
+    groups = ['Project Manager', 'Team Lead', 'Developer']
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -103,16 +115,20 @@ class ProjectDetailView(DetailView):
         return context
 
 
-class ProjectCreateView(LoginRequiredMixin, CreateView):
+class ProjectCreateView(GroupPermission, LoginRequiredMixin, CreateView):
     template_name: str = 'project/project_create.html'
     form_class = ProjectForm
     model = Project
+    groups = ['Project Manager']
+
 
     def get_success_url(self):
         return reverse('project_detail', kwargs={'pk': self.object.pk})
 
 
-class UserInProjectAdd(TemplateView):
+class UserInProjectAdd(GroupPermission, TemplateView):
+    groups = ['Project Manager', 'Team Lead']
+
 
     def post(self, request, *args, **kwargs):
         pk = kwargs.get('pk')
@@ -123,7 +139,9 @@ class UserInProjectAdd(TemplateView):
         
         return redirect('project_detail', pk=pk)
         
-class UserInProjectDelete(TemplateView):
+class UserInProjectDelete(GroupPermission, TemplateView):
+    groups = ['Project Manager', 'Team Lead']
+
     
     def post(self, request, *args, **kwargs):
         user_id = kwargs.get('user_pk')
