@@ -13,38 +13,41 @@ from issue.models import Task, Project
 
 
 class SuccessDetailUrlMixin:
+    '''класс перенаправления пользователя на страницу детального просмотра задачи
+    используется в TaskUpdateView, TaskCreateView'''
+
     def get_success_url(self):
         return reverse('task_detail', kwargs={'pk': self.object.pk})
 
 
-class TaskListView(GroupPermission, ListView):
+class TaskListView(ListView):
     template_name: str = 'task_list.html'
     model = Task
     context_object_name = 'tasks'
     paginate_by = 3
     paginate_orphans = 1
-    groups = ['Project Manager', 'Team Lead', 'Developer']
 
  
     def get_context_data(self, **kwargs):
+        '''изменение контекста, добавление формы поиска'''
         context = super().get_context_data(**kwargs)
         context['form'] = self.form
         return context
 
     def get(self, request, *args, **kwargs):
-        self.form = self.get_search_form()
+        '''изменение гет запроса, форма поиска'''
+        self.form = SearchTaskForm(self.request.GET)
         self.search_value = self.get_search_value()
         return super().get(request, *args, **kwargs)
 
-    def get_search_form(self):
-        return SearchTaskForm(self.request.GET)
-
     def get_search_value(self):
+        '''проверка формы поиска на ошибки'''
         if self.form.is_valid():
             return self.form.cleaned_data.get('search')
         return None
 
     def get_queryset(self):
+        '''возвращает список элементов queryset'''
         queryset = super().get_queryset()
         if self.search_value:
             queryset = queryset.filter(
@@ -54,6 +57,8 @@ class TaskListView(GroupPermission, ListView):
 
 
 class TaskDetailView(GroupPermission, LoginRequiredMixin, DetailView):
+    '''детальный просмотр задачи GroupPermission - разрешение группам пользователей 
+    на детальный просмотр'''
     template_name: str = 'task_detail.html'
     model = Task
     context_object_name = 'task'
@@ -61,6 +66,8 @@ class TaskDetailView(GroupPermission, LoginRequiredMixin, DetailView):
 
 
 class TaskUpdateView(GroupPermission, LoginRequiredMixin, SuccessDetailUrlMixin, UpdateView):
+    '''добавление задачи, dispatch - проверка на добавление задачи 
+    пользователю именно этого проекта'''
     template_name = 'task_update.html'
     form_class = TaskForm
     model = Task
@@ -78,6 +85,8 @@ class TaskUpdateView(GroupPermission, LoginRequiredMixin, SuccessDetailUrlMixin,
 
 
 class TaskCreateView(GroupPermission, LoginRequiredMixin, SuccessDetailUrlMixin, CreateView):
+    '''создание задачи, 
+    dispatch - проверка на добавление задачи пользователю именно этого проекта'''
     template_name: str = 'task_create.html'
     model = Task
     fields = ['summary', 'description', 'status', 'type']
@@ -85,6 +94,7 @@ class TaskCreateView(GroupPermission, LoginRequiredMixin, SuccessDetailUrlMixin,
 
 
     def form_valid(self, form):
+        '''проверка на ошибки'''
         form.instance.project = get_object_or_404(Project, id=self.kwargs.get('pk'))
         return super().form_valid(form)
 
@@ -98,6 +108,8 @@ class TaskCreateView(GroupPermission, LoginRequiredMixin, SuccessDetailUrlMixin,
 
 
 class TaskDeleteView(GroupPermission, LoginRequiredMixin, DeleteView):
+    '''удаление задачи, 
+    dispatch - проверка на добавление задачи пользователю именно этого проекта'''
     template_name = 'task_delete.html'
     model = Task
     success_url = reverse_lazy('task_list')
@@ -114,6 +126,8 @@ class TaskDeleteView(GroupPermission, LoginRequiredMixin, DeleteView):
 
 
 class ProjectListView(GroupPermission, ListView):
+    '''просмот списка проектов, 
+    dispatch - проверка на добавление задачи пользователю именно этого проекта'''
     template_name: str = 'project/project_list.html'
     model = Project
     context_object_name = 'projects'
@@ -121,6 +135,8 @@ class ProjectListView(GroupPermission, ListView):
 
 
 class ProjectDetailView(GroupPermission, DetailView):
+    '''детальный просмот списка проектов,
+    dispatch - проверка на добавление задачи пользователю именно этого проекта'''
     template_name: str = 'project/project_detail.html'
     model = Project
     context_object_name = 'project'
@@ -128,6 +144,7 @@ class ProjectDetailView(GroupPermission, DetailView):
 
 
     def get_context_data(self, **kwargs):
+        '''передача в контекст пользователей'''
         context = super().get_context_data(**kwargs)
         users = User.objects.all()
         context['users'] = users
@@ -135,6 +152,8 @@ class ProjectDetailView(GroupPermission, DetailView):
 
 
 class ProjectCreateView(GroupPermission, LoginRequiredMixin, CreateView):
+    '''создание проекта, 
+    dispatch - проверка на добавление задачи пользователю именно этого проекта'''
     template_name: str = 'project/project_create.html'
     form_class = ProjectForm
     model = Project
@@ -142,14 +161,18 @@ class ProjectCreateView(GroupPermission, LoginRequiredMixin, CreateView):
 
 
     def get_success_url(self):
+        '''перенаправление на шаблон детального просмотра проекта'''
         return reverse('project_detail', kwargs={'pk': self.object.pk})
 
 
 class UserInProjectAdd(GroupPermission, TemplateView):
+    '''добавление пользователя в проект, 
+    dispatch - проверка на добавление задачи пользователю именно этого проекта'''
     groups = ['Project Manager', 'Team Lead']
 
 
     def post(self, request, *args, **kwargs):
+        '''изменение метода пост для добавления пользователя в проект'''
         project_pk = kwargs.get('pk')
         users_pk = dict(request.POST).get('users')
         project = Project.objects.get(pk=project_pk)
@@ -167,9 +190,11 @@ class UserInProjectAdd(GroupPermission, TemplateView):
 
 
 class UserInProjectDelete(GroupPermission, TemplateView):
+    '''удаление пользователя из проекта'''
     groups = ['Project Manager', 'Team Lead']
     
     def post(self, request, *args, **kwargs):
+        '''изменение метода для удаления пользователя'''
         user_id = kwargs.get('user_pk')
         project_id = kwargs.get('project_pk')
         project = Project.objects.get(pk=project_id)
