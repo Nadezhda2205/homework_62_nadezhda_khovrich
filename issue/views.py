@@ -5,6 +5,7 @@ from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from accounts.view import GroupPermission
+from django.core.handlers.wsgi import WSGIRequest
 
 
 from issue.forms import TaskForm, SearchTaskForm, ProjectForm
@@ -14,7 +15,6 @@ from issue.models import Task, Project
 class SuccessDetailUrlMixin:
     def get_success_url(self):
         return reverse('task_detail', kwargs={'pk': self.object.pk})
-
 
 
 class TaskListView(GroupPermission, ListView):
@@ -60,7 +60,6 @@ class TaskDetailView(GroupPermission, LoginRequiredMixin, DetailView):
     groups = ['Project Manager', 'Team Lead', 'Developer']
 
 
-
 class TaskUpdateView(GroupPermission, LoginRequiredMixin, SuccessDetailUrlMixin, UpdateView):
     template_name = 'task_update.html'
     form_class = TaskForm
@@ -68,6 +67,14 @@ class TaskUpdateView(GroupPermission, LoginRequiredMixin, SuccessDetailUrlMixin,
     context_object_name = 'task'
     groups = ['Project Manager', 'Team Lead', 'Developer']
 
+    def dispatch(self, request, *args, **kwargs):
+        task_pk = kwargs['pk']
+        task = Task.objects.get(pk=task_pk)
+        project_of_task: Project = task.project
+        users_in_project = project_of_task.users.all()
+        if not request.user in users_in_project:
+            return self.handle_no_permission()
+        return super().dispatch(request, *args, **kwargs)
 
 
 class TaskCreateView(GroupPermission, LoginRequiredMixin, SuccessDetailUrlMixin, CreateView):
@@ -77,13 +84,17 @@ class TaskCreateView(GroupPermission, LoginRequiredMixin, SuccessDetailUrlMixin,
     groups = ['Project Manager', 'Team Lead', 'Developer']
 
 
-    def get(self, request, *args, **kwargs):
-        self.object = None
-        return super().get(request, *args, **kwargs)
-
     def form_valid(self, form):
         form.instance.project = get_object_or_404(Project, id=self.kwargs.get('pk'))
         return super().form_valid(form)
+
+    def dispatch(self, request, *args, **kwargs):
+        project_pk = kwargs['pk']
+        project = Project.objects.get(pk=project_pk)
+        users_in_project = project.users.all()
+        if not request.user in users_in_project:
+            return self.handle_no_permission()
+        return super().dispatch(request, *args, **kwargs)
 
 
 class TaskDeleteView(GroupPermission, LoginRequiredMixin, DeleteView):
@@ -91,6 +102,15 @@ class TaskDeleteView(GroupPermission, LoginRequiredMixin, DeleteView):
     model = Task
     success_url = reverse_lazy('task_list')
     groups = ['Project Manager', 'Team Lead']
+
+    def dispatch(self, request: WSGIRequest, *args, **kwargs):
+        task_pk = kwargs['pk']
+        task = Task.objects.get(pk=task_pk)
+        project_of_task: Project = task.project
+        users_in_project = project_of_task.users.all()
+        if not request.user in users_in_project:
+            return self.handle_no_permission()
+        return super().dispatch(request, *args, **kwargs)
 
 
 class ProjectListView(GroupPermission, ListView):
@@ -125,7 +145,7 @@ class ProjectCreateView(GroupPermission, LoginRequiredMixin, CreateView):
         return reverse('project_detail', kwargs={'pk': self.object.pk})
 
 
-class UserInProjectAdd(TemplateView):
+class UserInProjectAdd(GroupPermission, TemplateView):
     groups = ['Project Manager', 'Team Lead']
 
 
@@ -135,9 +155,16 @@ class UserInProjectAdd(TemplateView):
         project = Project.objects.get(pk=project_pk)
         for user_pk in users_pk:
             project.users.add(User.objects.get(pk=user_pk))
-        
         return redirect('project_detail', pk=project_pk)
         
+    def dispatch(self, request, *args, **kwargs):
+        project_pk = kwargs['pk']
+        project = Project.objects.get(pk=project_pk)
+        users_in_project = project.users.all()
+        if not request.user in users_in_project:
+            return self.handle_no_permission()
+        return super().dispatch(request, *args, **kwargs)
+
 
 class UserInProjectDelete(GroupPermission, TemplateView):
     groups = ['Project Manager', 'Team Lead']
@@ -148,4 +175,11 @@ class UserInProjectDelete(GroupPermission, TemplateView):
         project = Project.objects.get(pk=project_id)
         project.users.remove(User.objects.get(pk=user_id))
         return redirect('project_detail', pk=project_id)
-       
+    
+    def dispatch(self, request, *args, **kwargs):
+        project_pk = kwargs['project_pk']
+        project = Project.objects.get(pk=project_pk)
+        users_in_project = project.users.all()
+        if not request.user in users_in_project:
+            return self.handle_no_permission()
+        return super().dispatch(request, *args, **kwargs)
