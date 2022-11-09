@@ -9,8 +9,8 @@ class TaskForm(forms.ModelForm):
         fields = ['summary', 'description',  'status',  'type', 'project']
 
 
-class SearchTaskForm(forms.Form):
-    search = forms.CharField(required=False, label='')
+# class SearchTaskForm(forms.Form):
+#     search = forms.CharField(required=False, label='')
 
 
 class ProjectForm(forms.ModelForm):

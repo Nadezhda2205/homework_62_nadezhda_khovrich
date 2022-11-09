@@ -1,24 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
-{% comment %} {% load django_bootstrap5 %} {% endcomment %}
-
 
 {% block content %}
 <a class="btn btn-secondary mb-5" href="{% url 'register' %}">Зарегистрироваться</a>
 
-<form action="{% url 'login' %}" method='POST'>
+<form action="" method='POST'>
     <div class='form'>
         {% csrf_token %}
 
         {{form.as_p}}
 
         <input class="btn btn-secondary" type="submit" value="Войти">
-        {% comment %} {% bootstrap_form form %}
 
-        {% bootstrap_button button_type="submit" content=button_text %}
-     {% endcomment %}
     </div>
 </form>
-
 
 {% endblock %}

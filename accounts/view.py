@@ -4,6 +4,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.views.generic import CreateView
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.auth.models import User
+from django.urls import reverse
+
 
 
 class LoginView(TemplateView):
@@ -19,12 +22,24 @@ class LoginView(TemplateView):
         form = self.form(request.POST)
         if not form.is_valid():
             return redirect('login')
-        username = form.cleaned_data.get('username')
-        password = form.cleaned_data.get('password')
-        user = authenticate(request, username=username, password=password)
+
+        username: str = form.cleaned_data.get('username')
+        password: str = form.cleaned_data.get('password')
+        user: User | None = authenticate(request=request, username=username, password=password)
+
+        next: str = request.GET.get('next')
+
         if not user:
-            return redirect('login')
-        login(request,user)
+            if next:
+                return redirect(reverse('login') + f'?next={next}')
+            else:
+                return redirect('login')
+
+        login(request, user)
+
+        if next:
+            return redirect(next)
+
         return redirect('task_list')
         
 def logout_view(request):
